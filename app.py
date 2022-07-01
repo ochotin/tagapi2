@@ -2,8 +2,9 @@
 from flask import Flask, request, render_template
 import nltk
 from nltk.tokenize import word_tokenize
+import sklearn
 import joblib
-import pickle
+# import pickle
 
 
 app = Flask(__name__)
@@ -11,6 +12,10 @@ app = Flask(__name__)
 def text_cleaner2(x):
     x = word_tokenize(x)
     return x
+
+vectorizer = joblib.load("./New_tfidf_vectorizer_1.joblib")
+model = joblib.load("./New_model_1.joblib")
+multilabel_binarizer = joblib.load("./New_multilabel_binarizer_1.joblib")
 
 
 @app.route('/')
@@ -23,7 +28,10 @@ def form_example():
     if request.method == 'POST':
         Question = request.form.get('Question')
         Question_clean = text_cleaner2(Question)
-        return render_template('index.html', tags_prediction=Question)
+        X_tfidf = vectorizer.transform([Question_clean])
+        predict = model.predict(X_tfidf)
+        tags_prediction = multilabel_binarizer.inverse_transform(predict)
+        return render_template('index.html', tags_prediction = tags_prediction)
     return render_template('index.html')
 
 if __name__ == "__main__":
