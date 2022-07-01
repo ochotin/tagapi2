@@ -83,14 +83,14 @@ def text_cleaner2(x):
 # pos_list = ["NOUN","PROPN"]
 
 # Load pre-trained models
-with open('New_tfidf_vectorizer.pkl', "rb") as fp:   # Unpickling
-    vectorizer = pickle.load(fp)
+# with open('New_tfidf_vectorizer.pkl', "rb") as fp:   # Unpickling
+#    vectorizer = pickle.load(fp)
     
 # with open('New_model.pkl', "rb") as fp:   # Unpickling
 #     model = pickle.load(fp)
     
-with open('New_multilabel_binarizer.pkl', "rb") as fp:   # Unpickling
-    multilabel_binarizer = pickle.load(fp)
+# with open('New_multilabel_binarizer.pkl', "rb") as fp:   # Unpickling
+#    multilabel_binarizer = pickle.load(fp)
 
 # with open('New_X_tfidf.pkl', "rb") as fp:   # Unpickling
 #    New_X_tfidf = pickle.load(fp)
@@ -116,12 +116,12 @@ def form_example():
         # tags_prediction = "Python ... 2"
         tags_prediction = Question_clean
         return render_template('index.html', tags_prediction=tags_prediction)
-    return '''
-           <form method="POST">
-               <div><label>Question: <input type="text" name="Question"></label></div>
-               
-               <input type="submit" value="Submit">
-           </form>'''
+#    return '''
+#           <form method="POST">
+#               <div><label>Question: <input type="text" name="Question"></label></div>
+#               
+#               <input type="submit" value="Submit">
+#           </form>'''
            
            
 # app.run(debug=True)
