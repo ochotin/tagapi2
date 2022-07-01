@@ -1,14 +1,14 @@
 #import json
 from flask import Flask, request, render_template
-import nltk
-from nltk.tokenize import word_tokenize
-import pickle
+# import nltk
+# from nltk.tokenize import word_tokenize
+# import pickle
 
 
 app = Flask(__name__)
 
 def text_cleaner2(x):
-    x = word_tokenize(x)
+    # x = word_tokenize(x)
     return x
 
 
