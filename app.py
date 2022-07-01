@@ -28,9 +28,9 @@ def form_example():
         Question = request.form.get('Question')
         Question_clean = text_cleaner2(Question)
         X_tfidf = vectorizer.transform([Question_clean])
-        # predict = model.predict(X_tfidf)
-        # tags_prediction = multilabel_binarizer.inverse_transform(predict)
-        return render_template('index.html', tags_prediction = X_tfidf)
+        predict = model.predict(X_tfidf)
+        tags_prediction = multilabel_binarizer.inverse_transform(predict)
+        return render_template('index.html', tags_prediction = tags_prediction)
     return render_template('index.html')
 
 if __name__ == "__main__":
