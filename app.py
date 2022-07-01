@@ -15,7 +15,7 @@ def form_example():
     # handle the POST request
     if request.method == 'POST':
         Question = request.form.get('Question')
-        return render_template('index.html', tags_prediction = Question)
+        return render_template('index.html', tags_prediction=Question)
     return render_template('index.html')
 
 if __name__ == "__main__":
