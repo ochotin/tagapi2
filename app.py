@@ -17,10 +17,10 @@ def form_example():
     # handle the POST request
     if request.method == 'POST':
         Question = request.form.get('Question')
-        print("------------------ question : ", Question)
-        Question_clean = text_cleaner2(Question)
-        tags_prediction = Question_clean
-        return render_template('index.html', tags_prediction=tags_prediction)
+        # print("------------------ question : ", Question)
+        # Question_clean = text_cleaner2(Question)
+        # tags_prediction = Question_clean
+        return render_template('index.html', tags_prediction=Question)
 
 if __name__ == "__main__":
         app.run()
