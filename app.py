@@ -9,7 +9,7 @@ import pickle
 app = Flask(__name__)
 
 def text_cleaner2(x):
-    # x = word_tokenize(x)
+    x = word_tokenize(x)
     return x
 
 
