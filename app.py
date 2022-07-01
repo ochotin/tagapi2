@@ -10,7 +10,7 @@ import joblib
 app = Flask(__name__)
 
 def text_cleaner2(x):
-    x = word_tokenize(x)
+    x = x.split(' ')
     return x
 
 # vectorizer = joblib.load("./New_tfidf_vectorizer_1.joblib")
