@@ -13,9 +13,9 @@ def text_cleaner2(x):
     x = word_tokenize(x)
     return x
 
-vectorizer = joblib.load("./New_tfidf_vectorizer_1.joblib")
-model = joblib.load("./New_model_1.joblib")
-multilabel_binarizer = joblib.load("./New_multilabel_binarizer_1.joblib")
+# vectorizer = joblib.load("./New_tfidf_vectorizer_1.joblib")
+# model = joblib.load("./New_model_1.joblib")
+# multilabel_binarizer = joblib.load("./New_multilabel_binarizer_1.joblib")
 
 
 @app.route('/')
@@ -28,10 +28,10 @@ def form_example():
     if request.method == 'POST':
         Question = request.form.get('Question')
         Question_clean = text_cleaner2(Question)
-        X_tfidf = vectorizer.transform([Question_clean])
-        predict = model.predict(X_tfidf)
-        tags_prediction = multilabel_binarizer.inverse_transform(predict)
-        return render_template('index.html', tags_prediction = tags_prediction)
+        # X_tfidf = vectorizer.transform([Question_clean])
+        # predict = model.predict(X_tfidf)
+        # tags_prediction = multilabel_binarizer.inverse_transform(predict)
+        return render_template('index.html', tags_prediction = Question_clean)
     return render_template('index.html')
 
 if __name__ == "__main__":
