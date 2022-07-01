@@ -1,9 +1,9 @@
 #import json
 from flask import Flask, request, render_template
-import nltk
-from nltk.tokenize import word_tokenize
-import sklearn
-import joblib
+#import nltk
+#from nltk.tokenize import word_tokenize
+# import sklearn
+# import joblib
 # import pickle
 
 
